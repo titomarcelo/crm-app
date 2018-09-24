@@ -32,12 +32,12 @@
             <tr>
                 <td class="js-list-date"><c:out value="${sale.date}"/></td>
                 <td class="js-list-customer"><c:out value="${sale.customer.name}"/></td>
-                <td class="js-list-cpf cpf_mask"><c:out value="${sale.customer.cpf}"/></td>
+                <td class="js-list-cpf cpf-mask"><c:out value="${sale.customer.cpf}"/></td>
                 <td><c:out value="${sale.card.description}"/></td>
-                <td class='money3_mask'><c:out value="${sale.amount}"/></td>
+                <td class='money3-mask'><c:out value="${sale.amount}"/></td>
                 <td>
                     <a href="javascript:void(0);" data-href="/sale/load/${sale.id}" class="open-view">
-                        <i class="material-icons" data-toggle="tooltip" title="Produtos da venda">list</i></a>
+                        <i class="material-icons" data-toggle="tooltip" title="Sale products">list</i></a>
                 </td>
                 <td>
                     <a href="#editModal" class="edit open-edit" data-toggle="modal" 
@@ -94,7 +94,7 @@
                           <option value="" label="" />
                           <c:forEach var="varCustomer" items="${customerList}">
                             <option value="${varCustomer.id}">
-                              <c:out value="${varCustomer.name}"/> - CPF <div class='cpf_mask'><c:out value="${varCustomer.cpf}"/></div>
+                              <c:out value="${varCustomer.name}"/> - CPF <div class='cpf-mask'><c:out value="${varCustomer.cpf}"/></div>
                             </option>
                           </c:forEach>
                         </select>
@@ -107,7 +107,7 @@
                     </div>
                     <div class="form-group">
                         <label>Valor (R$)</label>
-                        <input type="text" name='amount' class='form-control money3_mask' required/>
+                        <input type="text" name='amount' class='form-control money3-mask' required/>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -169,7 +169,7 @@
                     
                     <div class="form-group">
                         <label>Valor (R$)</label>
-                        <input type="text" name='amount' id='amount' value="" class='form-control money3_mask' required/>
+                        <input type="text" name='amount' id='amount' value="" class='form-control money3-mask' required/>
                     </div>
                 </div>
                 <div class="modal-footer">

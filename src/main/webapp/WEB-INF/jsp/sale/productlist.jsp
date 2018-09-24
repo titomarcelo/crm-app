@@ -6,4 +6,4 @@
     </c:forEach>
 </div>
 </br>
-<p class="text-warning"><small><c:out value="${sale.customer.name}"/> - CPF <span class='cpf_mask'><c:out value="${sale.customer.cpf}"/></span></small></p>
+<p class="text-warning"><small><c:out value="${sale.customer.name}"/> - CPF <span class='cpf-mask'><c:out value="${sale.customer.cpf}"/></span></small></p>

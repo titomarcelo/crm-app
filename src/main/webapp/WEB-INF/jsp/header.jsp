@@ -17,14 +17,14 @@
 
   <%-- css --%>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker3.standalone.min.css" />
+  <link rel="stylesheet" href="/resources/css/bootstrap-datepicker3.standalone.min.css" />
   <link rel="stylesheet" href="/resources/css/app.css">
 
   <%-- js --%>  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
+  <script src="/resources/js/bootstrap-datepicker.min.js"></script>
   <script src="/resources/js/jquery.mask.min.js"></script>
   <script src="/resources/js/app.js"></script>
 </head>
