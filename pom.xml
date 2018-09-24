@@ -16,7 +16,7 @@
     </parent>
 
     <properties>
-        <start-class>com.tmao.crm.Application</start-class>
+        <start-class>com.tmao.crm.App</start-class>
         <main.basedir>${basedir}/../..</main.basedir>
         <m2eclipse.wtp.contextRoot>/</m2eclipse.wtp.contextRoot>
     </properties>

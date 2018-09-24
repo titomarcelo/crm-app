@@ -1,3 +1,14 @@
+#message {
+    position: fixed;
+    bottom: 5px;
+    left:69%;
+    width: 30%;
+    z-index:9999;
+}
+#inner-message {
+    margin: 0 auto;
+}
+
 .navbar-app {
     position: relative;
     min-height: 50px;

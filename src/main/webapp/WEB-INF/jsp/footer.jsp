@@ -2,7 +2,7 @@
 
 <footer class="footer">
     <div class="container">
-        <p class="text-muted pull-right">Copyright &copy; Bangalô Restaurante. All Rights Reserved.</p>
+        <p class="text-muted pull-right">Copyright &copy; TMAO. All Rights Reserved.</p>
     </div>
 </footer>
 

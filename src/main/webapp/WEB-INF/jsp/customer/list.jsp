@@ -1,21 +1,14 @@
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c' %>
 <jsp:include page="../header.jsp"></jsp:include>
 
-<c:if test="${not empty msg}">
-  <div class="alert alert-info" id="success-alert">
-    <button type="button" class="close" data-dismiss="alert">x</button>
-    <c:out value="${msg}"></c:out>
-  </div>
-</c:if>
-
 <div class="table-wrapper" id="list-customers" >
     <div class="table-title">
         <div class="row">
             <div class="col-sm-2">
-                <h2>Clientes</h2>
+                <h2>Customers</h2>
             </div>
             <div class="col-sm-8">
-                <input type="text" class="search form-control" placeholder="Filter customers by cpf or name . . .">
+                <input type="text" class="search form-control" placeholder="Filter by cpf or name . . .">
             </div>
             <div class="col-sm-2">
                 <a href="#addModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add</span></a>
@@ -68,7 +61,7 @@
         <div class="modal-content">
             <form action='/customer/add' method='post'>
                 <div class="modal-header">                      
-                    <h4 class="modal-title">Add Cliente</h4>
+                    <h4 class="modal-title">Add new customer</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
                 <div class="modal-body">
@@ -114,7 +107,7 @@
         <div class="modal-content">
             <form action='/customer/update' method='post'>
                 <div class="modal-header">                      
-                    <h4 class="modal-title">Edit Cliente</h4>
+                    <h4 class="modal-title">Edit customer</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
                 <div class="modal-body">
@@ -122,7 +115,7 @@
                     
                     <div class="form-group">
                         <label>Cpf</label>
-                        <input type='number' name='cpf' id='cpf' value="" class='form-control cpf_mask' readonly/>
+                        <input type='text' name='cpf' id='cpf' value="" class='form-control cpf_mask' readonly/>
                     </div>
                     <div class="form-group">
                         <label>Name</label>
@@ -161,12 +154,12 @@
         <div class="modal-content">
             <form action='/customer/delete' method='post'>
                 <div class="modal-header">                      
-                    <h4 class="modal-title">Delete Cliente</h4>
+                    <h4 class="modal-title">Delete customer</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
                 <div class="modal-body">
                     <input type="hidden" name="beanId" id="beanId" value=""/>
-                    <p>Are you sure you want to delete these Cliente?</p>
+                    <p>Are you sure you want to delete this customer?</p>
                     <p class="text-warning"><small>This action cannot be undone.</small></p>
                 </div>
                 <div class="modal-footer">

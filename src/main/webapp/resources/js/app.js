@@ -1,5 +1,16 @@
 
-$(document).ready(function(){
+// msg alert
+window.setTimeout(function() {
+    $(".alert").fadeTo(500, 0).slideUp(500, function(){ 
+        $(this).remove(); 
+    });
+}, 4000);
+
+
+// layout framework
+$(document).ready(function(e){
+	e.preventDefault();
+	
 	// Activate tooltip
 	$('[data-toggle="tooltip"]').tooltip();
 	
@@ -23,15 +34,6 @@ $(document).ready(function(){
 	});
 });
 
-// msg alert
-$(document).ready (function(){
-    $("#success-alert").hide();
-    $("#msg-alert").click(function showAlert() {
-    	    $("#success-alert").fadeTo(2000, 500).slideUp(500, function(){
-    	    	    $("#success-alert").slideUp(500);
-    	    	});   
-    });
-});
 
 // open delete modal
 $(document).on("click", ".open-delete", function (e) {
@@ -42,16 +44,22 @@ $(document).on("click", ".open-delete", function (e) {
     
 });
 
+
 // date input
-$(function () {
+$(function (e) {
+	e.preventDefault();
+	
 	$('.datepicker').datepicker({
 	    format: 'mm/dd/yyyy',
 	    startDate: '-3d'
 	});
 });
 
+
 // field mask
-$(document).ready(function(){
+$(document).ready(function(e){
+	e.preventDefault();
+	
 	  $('.date_mask').mask('00/00/0000');
 	  $('.time_mask').mask('00:00:00');
 	  $('.date_time_mask').mask('00/00/0000 00:00:00');
@@ -67,16 +75,4 @@ $(document).ready(function(){
 	  $('.money2_mask').mask("#.##0,00", {reverse: true});
 	  $('.money3_mask').mask("#,##0.00", {reverse: true});
 	  $('.percent_mask').mask('##0,00%', {reverse: true});
-	  $('.clear-if-not-match_mask').mask("00/00/0000", {clearIfNotMatch: true});
-	  $('.placeholder_mask').mask("00/00/0000", {placeholder: "__/__/____"});
-	  $('.fallback_mask').mask("00r00r0000", {
-	      translation: {
-	        'r': {
-	          pattern: /[\/]/,
-	          fallback: '/'
-	        },
-	        placeholder: "__/__/____"
-	      }
-	    });
-	  $('.selectonfocus_mask').mask("00/00/0000", {selectOnFocus: true});
 });

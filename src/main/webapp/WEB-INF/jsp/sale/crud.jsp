@@ -1,21 +1,14 @@
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c' %>
 <jsp:include page="../header.jsp"></jsp:include>
 
-<c:if test="${not empty msg}">
-  <div class="alert alert-info" id="success-alert">
-    <button type="button" class="close" data-dismiss="alert">x</button>
-    <c:out value="${msg}"></c:out>
-  </div>
-</c:if>
-
 <div class="table-wrapper" id="list-sales" >
     <div class="table-title">
         <div class="row">
             <div class="col-sm-2">
-                <h2>Vendas</h2>
+                <h2>Sales</h2>
             </div>
             <div class="col-sm-8">
-                <input type="text" class="search form-control" placeholder="Filter sales by date, customer name or cpf . . .">
+                <input type="text" class="search form-control" placeholder="Filter by date, customer name or cpf . . .">
             </div>
             <div class="col-sm-2">
                 <a href="#addModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add</span></a>
@@ -29,8 +22,8 @@
                 <th class="col-sm-3">Customer</th>
                 <th class="col-sm-2">Cpf</th>
                 <th class="col-sm-2">Card</th>
-                <th class="col-sm-1">Valor (R$)</th>
-                <th class="col-sm-1">Produtos</th>
+                <th class="col-sm-1">Amount (R$)</th>
+                <th class="col-sm-1">Products</th>
                 <th class="col-sm-1">Actions</th>
             </tr>
         </thead>

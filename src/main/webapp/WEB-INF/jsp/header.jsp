@@ -8,7 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
-  <title>Bangal&ocirc; Restaurante</title>
+  <title>TMAO CRM</title>
   
   <%-- font --%>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
@@ -38,15 +38,15 @@
           <li class="active"><a href="/">Home</a></li>
         </ul>
         <ul class="nav navbar-nav">
-          <li class="active"><a href="/product/list">Produtos</a></li>
+          <li class="active"><a href="/product/list">Products</a></li>
         </ul>
         <ul class="nav navbar-nav">
-          <li class="active"><a href="/customer/list">Clientes</a></li>
+          <li class="active"><a href="/customer/list">Customers</a></li>
         </ul>
         <ul class="nav navbar-nav">
-          <li class="active"><a href="/sale/crud">Vendas</a></li>
+          <li class="active"><a href="/sale/crud">Sales</a></li>
         </ul>
-        <a class="navbar-brand pull-right" href="/">Bangal&ocirc; Restaurante</a>
+        <a class="navbar-brand pull-right" href="/">TMAO CRM</a>
       </div>
     </nav>
     
@@ -60,9 +60,12 @@
 <div class="container">
 
 <c:if test="${not empty msg}">
-  </br>
-  <div class="alert alert-success" id="success-alert">
-    <button type="button" class="close" data-dismiss="alert">x</button>
-    <c:out value="${msg}"></c:out>
-  </div>
+<div id="message">
+    <div style="padding: 5px;">
+        <div id="inner-message" class="alert alert-${msg.style}" role="alert">
+		    <button type="button" class="close" data-dismiss="alert">x</button>
+		    <c:out value="${msg.text}"></c:out>
+        </div>
+    </div>
+</div>
 </c:if>

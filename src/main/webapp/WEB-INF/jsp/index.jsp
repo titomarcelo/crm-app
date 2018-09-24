@@ -3,7 +3,7 @@
 
 <br>
 <div class="jumbotron" align="center">
-  <h1 class="display-4">Bangal&ocirc; Restaurante</h1>
+  <h1 class="display-4">TMAO CRM</h1>
   <hr class="my-4">
   <p>Customer Relationship Management</p>
 </div>

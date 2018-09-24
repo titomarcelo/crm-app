@@ -1,21 +1,14 @@
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c' %>
 <jsp:include page="../header.jsp"></jsp:include>
 
-<c:if test="${not empty msg}">
-  <div class="alert alert-${msg.style}" role="alert">
-    <button type="button" class="close" data-dismiss="alert">x</button>
-    <c:out value="${msg.text}"></c:out>
-  </div>
-</c:if>
-
 <div class="table-wrapper" id="list-products" >
     <div class="table-title">
         <div class="row">
             <div class="col-sm-2">
-                <h2>Produtos</h2>
+                <h2>Products</h2>
             </div>
             <div class="col-sm-8">
-                <input type="text" class="search form-control" placeholder="Filter products by description or category . . .">
+                <input type="text" class="search form-control" placeholder="Filter by description or category . . .">
             </div>
             <div class="col-sm-2">
                 <a href="#addModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add</span></a>
@@ -25,10 +18,10 @@
     <table class="table table-striped table-hover">
         <thead>
             <tr>
-                <th class='col-sm-3'>Categoria</th>
-                <th class='col-sm-6'>Descri&ccedil;&atilde;o</th>
-                <th class='col-sm-2'>Situa&ccedil;&atilde;o</th>
-                <th class='col-sm-1'>A&ccedil;&otilde;es</th>
+                <th class='col-sm-4'>Category</th>
+                <th class='col-sm-6'>Description</th>
+                <th class='col-sm-1'>Status</th>
+                <th class='col-sm-1'>Actions</th>
             </tr>
         </thead>
         <tbody class="list">
@@ -62,7 +55,7 @@
         <div class="modal-content">
             <form action='/product/add' method='post'>
                 <div class="modal-header">                      
-                    <h4 class="modal-title">Add Produto</h4>
+                    <h4 class="modal-title">Add new product</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
                 <div class="modal-body">        
@@ -100,7 +93,7 @@
         <div class="modal-content">
             <form action='/product/update' method='post'>
                 <div class="modal-header">                      
-                    <h4 class="modal-title">Edit Produto</h4>
+                    <h4 class="modal-title">Edit product</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
                 <div class="modal-body">
@@ -138,7 +131,7 @@
         <div class="modal-content">
             <form action='/product/delete' method='post'>
                 <div class="modal-header">                      
-                    <h4 class="modal-title">Delete Produto</h4>
+                    <h4 class="modal-title">Delete product</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
                 <div class="modal-body">
