@@ -19,10 +19,10 @@
         <thead>
             <tr>
                 <th class="col-sm-2">Date</th>
-                <th class="col-sm-3">Customer</th>
+                <th class="col-sm-2">Customer</th>
                 <th class="col-sm-2">Cpf</th>
                 <th class="col-sm-2">Card</th>
-                <th class="col-sm-1">Amount (R$)</th>
+                <th class="col-sm-2">Amount ($)</th>
                 <th class="col-sm-1">Products</th>
                 <th class="col-sm-1">Actions</th>
             </tr>
@@ -43,9 +43,9 @@
                     <a href="#editModal" class="edit open-edit" data-toggle="modal" 
                         data-id="${sale.id}" 
                         data-date="${sale.date}" 
+                        data-card-value="${sale.card.value}"
                         data-customer-id="${sale.customer.id}" 
-                        data-card="${sale.card.description}"
-                        data-product-ids=""
+                        data-product-ids="${sale.productIds}"
                         data-amount="${sale.amount}">
                         <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                         
@@ -58,7 +58,7 @@
         </tbody>
     </table>
 </div>
-    
+
     
 <%-- Add Modal HTML --%>
 <div id="addModal" class="modal fade">
@@ -131,7 +131,6 @@
                 </div>
                 <div class="modal-body">
                     <input type="hidden" name="saleId" id="saleId" value=""/>
-
                     <div class="form-group">
                         <label>Date</label>
                        <div class="input-group date" data-provide="datepicker">
@@ -141,7 +140,6 @@
                           </div>
                       </div>
                     </div>
-
                     <div class="form-group">
                         <label>Card</label>
                         <select name="card" id="card" class='form-control' required >
@@ -150,7 +148,6 @@
                           </c:forEach>
                         </select>
                     </div>
-                    
                     <div class="form-group">
                         <label>Cliente</label>
                         <select name="customerId" id="customerId" class='form-control' required>
@@ -160,12 +157,21 @@
                         </select>
                     </div>
                     
+                    
+                    
                     <div class="form-group">
                         <label>Produtos</label><br>
                         <c:forEach var="varProduct" items="${productList}">
+                          
+                          <c:if test="${varProduct.id ==  = not empty msg}">
+                          </c:if>
+                          
+                          
                           <input type="checkbox" name="productIds" id="productIds" value="${varProduct.id}"> <c:out value="${varProduct.description}"/><br>
                         </c:forEach>
                     </div>
+                    
+                    
                     
                     <div class="form-group">
                         <label>Valor (R$)</label>
@@ -226,6 +232,7 @@
     </div>
 </div>
 
+
 <script>
 $(document).ready(function(){
     $('.open-view').on('click',function(e){
@@ -237,24 +244,55 @@ $(document).ready(function(){
         });
     }); 
 });
-
+ 
+// Edit Modal JS
 $(document).on("click", ".open-edit", function (e) {
     e.preventDefault();
     
     var saleId = $(this).data('id');
     $(".modal-body #saleId").val( saleId );
     
+    var date = $(this).data('date');
+    $(".modal-body #date").val( date );
+    
     var cardValue = $(this).data('card-value');
     $(".modal-body #card").val( cardValue );
     
     var customerId = $(this).data('customer-id');
     $(".modal-body #customerId").val( customerId );
+    
+    
+    
+    
+    
 
+
+    product_id_${varProduct.id}
+    
+
+    var productIds = $(this).data('product-ids');
+    
+    var i = 0;
+    for (;productIds[i];) {
+    	
+    	
+    	$(".modal-body #product_id_productIds[i]").prop( "checked", productIds );
+        
+        
+        i++;
+    }
 
     
     
-    var isActive = $(this).data('active');
+/*     $(".modal-body #productIds").prop( "checked", false );
+    
+    alert("productIds=" + productIds);
+    
+    $(".modal-body #productIds").prop( "checked", productIds );
+ */    
+/*     var isActive = $(this).data('active');
     $(".modal-body #active").prop( "checked", isActive );
+ */
     
     
     

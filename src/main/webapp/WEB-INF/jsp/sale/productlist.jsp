@@ -2,7 +2,7 @@
 
 <div class="form-group">
     <c:forEach var="varProduct" items="${sale.products}">
-      <p><c:out value="${varProduct.description}"/></p>
+      <p><span class="glyphicon">&#x2012;</span> <c:out value="${varProduct.description}"/></p>
     </c:forEach>
 </div>
 </br>
