@@ -277,13 +277,14 @@ $(document).on("click", ".open-edit", function (e) {
     
 //    var productCheckboxValues = JSON.parse(localStorage.getItem('productCheckboxValues')) || {};
     
-    var $productCheckboxes = $("#product-checkbox-edit-container :checkbox");
+    var $productCheckboxes = $(".modal-body #product-checkbox-edit-container :checkbox");
+    
     $productCheckboxes.each(function(){
     	
-    	var p = productCheckboxValues[this.id];
-    	alert("productCheckboxValues[this.id]" + productCheckboxValues[this.id]);
+        var p = productCheckboxValues[this.id];
+    	    alert("productCheckboxValues[this.id]" + productCheckboxValues[this.id]);
     	
-    	  //  productCheckboxValues[this.id] = this.checked; 
+    	    // productCheckboxValues[this.id] = this.checked; 
     });
     
 //    $(".modal-body #xxxxxx").prop( "checked", true );
