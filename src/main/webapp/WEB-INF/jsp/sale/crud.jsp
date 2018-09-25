@@ -131,6 +131,7 @@
                 </div>
                 <div class="modal-body">
                     <input type="hidden" name="saleId" id="saleId" value=""/>
+                    
                     <div class="form-group">
                         <label>Date</label>
                        <div class="input-group date" data-provide="datepicker">
@@ -159,15 +160,11 @@
                     
                     
                     
-                    <div class="form-group">
+                    <div class="form-group checkbox-container">
                         <label>Produtos</label><br>
                         <c:forEach var="varProduct" items="${productList}">
                           
-                          <c:if test="${varProduct.id ==  = not empty msg}">
-                          </c:if>
-                          
-                          
-                          <input type="checkbox" name="productIds" id="productIds" value="${varProduct.id}"> <c:out value="${varProduct.description}"/><br>
+                          <input type="checkbox" name="productIds" id="${varProduct.id}" value="${varProduct.id}"> <c:out value="${varProduct.description}"/><br>
                         </c:forEach>
                     </div>
                     
@@ -234,6 +231,7 @@
 
 
 <script>
+// View Modal JS
 $(document).ready(function(){
     $('.open-view').on('click',function(e){
     	    e.preventDefault();
@@ -265,23 +263,55 @@ $(document).on("click", ".open-edit", function (e) {
     
     
     
-
-
-    product_id_${varProduct.id}
     
-
     var productIds = $(this).data('product-ids');
     
+    
+    $.each(checkboxValues, function(key, value) {
+    	  $("#" + key).prop('checked', value);
+    	});
+    
+    
+    
+    $("#checkbox-container :checkbox").on("change", function(){
+    	  alert("The checkbox with the ID '" + this.id + "' changed");
+    	});
+    
+    //https://www.sitepoint.com/quick-tip-persist-checkbox-checked-state-after-page-reload/
+    
+    
+    $.each(productIds, function(checkboxId) {
+    	
+    	alert("teste=" + checkboxId);
+    	
+    	  $("#" + checkboxId).prop('checked', true);
+    	});
+    
+/*     
+    
+    $(this).data('product-ids').each(function( index ) {
+    	
+    	
+    	alert("ID = " + $( this ).text());
+ */    	
+/*     	$(".modal-body #productIds").prop( "checked", productIds );
+    	  console.log( index + ": " +  );
+    	  
+    	});
+    
+   */  
+    
+    
+/*     var productIds = $(this).data('product-ids');
+    product_id_${varProduct.id}
     var i = 0;
     for (;productIds[i];) {
     	
     	
     	$(".modal-body #product_id_productIds[i]").prop( "checked", productIds );
-        
-        
         i++;
     }
-
+ */
     
     
 /*     $(".modal-body #productIds").prop( "checked", false );
