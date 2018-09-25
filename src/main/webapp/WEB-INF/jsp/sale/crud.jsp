@@ -160,13 +160,18 @@
                     
                     
                     
-                    <div class="form-group checkbox-container">
+                    
+                    
+                    <div class="form-group product-checkbox-edit-container">
                         <label>Produtos</label><br>
                         <c:forEach var="varProduct" items="${productList}">
                           
                           <input type="checkbox" name="productIds" id="${varProduct.id}" value="${varProduct.id}"> <c:out value="${varProduct.description}"/><br>
                         </c:forEach>
                     </div>
+                    
+                    
+                    
                     
                     
                     
@@ -259,78 +264,42 @@ $(document).on("click", ".open-edit", function (e) {
     var customerId = $(this).data('customer-id');
     $(".modal-body #customerId").val( customerId );
     
+    var amount = $(this).data('amount');
+    $(".modal-body #amount").val( amount );
     
     
+    // AQUI ------
     
-    
-    
+
     var productIds = $(this).data('product-ids');
+    alert("productIds = " + productIds);
     
     
-    $.each(checkboxValues, function(key, value) {
-    	  $("#" + key).prop('checked', value);
-    	});
+//    var productCheckboxValues = JSON.parse(localStorage.getItem('productCheckboxValues')) || {};
+    
+    var $productCheckboxes = $("#product-checkbox-edit-container :checkbox");
+    $productCheckboxes.each(function(){
+    	
+    	var p = productCheckboxValues[this.id];
+    	alert("productCheckboxValues[this.id]" + productCheckboxValues[this.id]);
+    	
+    	  //  productCheckboxValues[this.id] = this.checked; 
+    });
+    
+//    $(".modal-body #xxxxxx").prop( "checked", true );
     
     
     
-    $("#checkbox-container :checkbox").on("change", function(){
-    	  alert("The checkbox with the ID '" + this.id + "' changed");
-    	});
+    
+
     
     //https://www.sitepoint.com/quick-tip-persist-checkbox-checked-state-after-page-reload/
     
     
-    $.each(productIds, function(checkboxId) {
-    	
-    	alert("teste=" + checkboxId);
-    	
-    	  $("#" + checkboxId).prop('checked', true);
-    	});
-    
-/*     
-    
-    $(this).data('product-ids').each(function( index ) {
-    	
-    	
-    	alert("ID = " + $( this ).text());
- */    	
-/*     	$(".modal-body #productIds").prop( "checked", productIds );
-    	  console.log( index + ": " +  );
-    	  
-    	});
-    
-   */  
-    
-    
-/*     var productIds = $(this).data('product-ids');
-    product_id_${varProduct.id}
-    var i = 0;
-    for (;productIds[i];) {
-    	
-    	
-    	$(".modal-body #product_id_productIds[i]").prop( "checked", productIds );
-        i++;
-    }
- */
-    
-    
-/*     $(".modal-body #productIds").prop( "checked", false );
-    
-    alert("productIds=" + productIds);
-    
-    $(".modal-body #productIds").prop( "checked", productIds );
- */    
-/*     var isActive = $(this).data('active');
-    $(".modal-body #active").prop( "checked", isActive );
- */
     
     
     
-    
-    
-    
-    var amount = $(this).data('amount');
-    $(".modal-body #amount").val( amount );
+
 });
 
 var listSales = new List('list-sales', {
