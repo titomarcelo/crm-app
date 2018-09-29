@@ -70,7 +70,7 @@
                     </div>
                     <div class="form-group">
                         <label>Description</label>
-                        <input type='text' name='description' class='form-control' required/>
+                        <input type='text' name='description' class='form-control' maxlength='40' required/>
                     </div>
                     <div class="form-group">
                         <label>Active</label>
@@ -108,7 +108,7 @@
                     </div>
                     <div class="form-group">
                         <label>Description</label>
-                        <input type='text' name='description' id='description' class='form-control' value="" required/>
+                        <input type='text' name='description' id='description' class='form-control' value="" maxlength='40' required/>
                     </div>
                     <div class="form-group">
                         <label>Active</label>

@@ -29,10 +29,10 @@
         <tbody class="list">
         <c:forEach items="${customers}" var="customer">
             <tr>
-                <td class="js-list-cpf cpf_mask"><c:out value="${customer.cpf}"/></td>
+                <td class="js-list-cpf cpf-mask"><c:out value="${customer.cpf}"/></td>
                 <td class="js-list-name"><c:out value="${customer.name}"/></td>
                 <td><c:out value="${customer.email}"/></td>
-                <td class='cell_phone_with_ddd_mask'><c:out value="${customer.phone}"/></td>
+                <td class='cell-phone-with-ddd-mask'><c:out value="${customer.phone}"/></td>
                 <td><c:out value="${customer.gender.description}"/></td>
                 <td>
                     <a href="#editModal" class="edit open-edit" data-toggle="modal" 
@@ -67,11 +67,11 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label>Cpf</label>
-                        <input type='text' name='cpf' class='form-control cpf_mask' required/>
+                        <input type='text' name='cpf' class='form-control cpf-mask' required/>
                     </div>
                     <div class="form-group">
                         <label>Name</label>
-                        <input type='text' name='name' class='form-control' required/>
+                        <input type='text' name='name' class='form-control' maxlength='40' required/>
                     </div>
                     <div class="form-group">
                         <label>Email</label>
@@ -79,7 +79,7 @@
                     </div>
                     <div class="form-group">
                         <label>Phone</label>
-                        <input type='text' name='phone' class='form-control cell_phone_with_ddd_mask' required/>
+                        <input type='text' name='phone' class='form-control cell-phone-with-ddd-mask' required/>
                     </div>
                     <div class="form-group">
                         <label>Gender</label>
@@ -115,11 +115,11 @@
                     
                     <div class="form-group">
                         <label>Cpf</label>
-                        <input type='text' name='cpf' id='cpf' value="" class='form-control cpf_mask' readonly/>
+                        <input type='text' name='cpf' id='cpf' value="" class='form-control cpf-mask' readonly/>
                     </div>
                     <div class="form-group">
                         <label>Name</label>
-                        <input type='text' name='name' id='name' value="" class='form-control' required/>
+                        <input type='text' name='name' id='name' value="" class='form-control' maxlength='40' required/>
                     </div>
                     <div class="form-group">
                         <label>Email</label>
@@ -127,7 +127,7 @@
                     </div>
                     <div class="form-group">
                         <label>Phone</label>
-                        <input type='text' name='phone' id='phone' value="" class='form-control cell_phone_with_ddd_mask' required/>
+                        <input type='text' name='phone' id='phone' value="" class='form-control cell-phone-with-ddd-mask' required/>
                     </div>
                     <div class="form-group">
                         <label>Gender</label>

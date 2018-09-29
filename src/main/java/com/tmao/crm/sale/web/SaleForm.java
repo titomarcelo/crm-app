@@ -9,64 +9,64 @@ import com.tmao.crm.sale.domain.Card;
 
 public class SaleForm {
 
-    private String id;
-    private Card card;
-    private String date;
-    private String customerId;
-    private List<String> productIds = new ArrayList<>();
-    private String amount;
+	private String id;
+	private Card card;
+	private String date;
+	private String amount;
+	private String customerId;
+	private List<String> productIds = new ArrayList<>();
 
-    public String getId() {
-        return id;
-    }
+	public String getId() {
+		return id;
+	}
 
-    public void setId(final String id) {
-        this.id = id;
-    }
+	public void setId(final String id) {
+		this.id = id;
+	}
 
-    public Card getCard() {
-        return card;
-    }
+	public Card getCard() {
+		return card;
+	}
 
-    public void setCard(final Card card) {
-        this.card = card;
-    }
+	public void setCard(final Card card) {
+		this.card = card;
+	}
 
-    public String getDate() {
-        return date;
-    }
+	public String getDate() {
+		return date;
+	}
 
-    public void setDate(final String date) {
-        this.date = date;
-    }
+	public void setDate(final String date) {
+		this.date = date;
+	}
 
-    public LocalDate getDateAsLocalDate() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
-        return LocalDate.parse(date, formatter);
-    }
+	public LocalDate getDateAsLocalDate() {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+		return LocalDate.parse(date, formatter);
+	}
 
-    public String getCustomerId() {
-        return customerId;
-    }
+	public String getCustomerId() {
+		return customerId;
+	}
 
-    public void setCustomerId(final String customerId) {
-        this.customerId = customerId;
-    }
+	public void setCustomerId(final String customerId) {
+		this.customerId = customerId;
+	}
 
-    public List<String> getProductIds() {
-        return productIds;
-    }
+	public List<String> getProductIds() {
+		return productIds;
+	}
 
-    public void setProductIds(final List<String> productIds) {
-        this.productIds = productIds;
-    }
+	public void setProductIds(final List<String> productIds) {
+		this.productIds = productIds;
+	}
 
-    public String getAmount() {
-        return amount;
-    }
+	public String getAmount() {
+		return amount;
+	}
 
-    public void setAmount(String amount) {
-        this.amount = amount;
-    }
+	public void setAmount(String amount) {
+		this.amount = amount;
+	}
 
 }

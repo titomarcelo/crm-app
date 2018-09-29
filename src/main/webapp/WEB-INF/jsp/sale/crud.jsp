@@ -35,9 +35,15 @@
                 <td class="js-list-cpf cpf-mask"><c:out value="${sale.customer.cpf}"/></td>
                 <td><c:out value="${sale.card.description}"/></td>
                 <td class='money3-mask'><c:out value="${sale.amount}"/></td>
+                <%-- 
                 <td>
                     <a href="javascript:void(0);" data-href="/sale/load/${sale.id}" class="open-view">
                         <i class="material-icons" data-toggle="tooltip" title="Sale products">list</i></a>
+                </td>
+                --%>
+                <td>
+				    <a data-toggle="collapse" href="#collapse-${sale.id}" role="button" aria-expanded="false" aria-controls="collapse-${sale.id}">
+				      <i class="material-icons" data-toggle="tooltip" title="Sale products">list</i></a>
                 </td>
                 <td>
                     <a href="#editModal" class="edit open-edit" data-toggle="modal" 
@@ -54,6 +60,14 @@
                         <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                 </td>
             </tr>
+            <%-- products collapse --%>
+            <tr class="collapse" id="collapse-${sale.id}"><td colspan="12">
+		      <div class="card card-body">
+			    <c:forEach var="varProduct" items="${sale.products}">
+			      <p><span class="glyphicon">&#x2012;</span> <c:out value="${varProduct.description}"/></p>
+			    </c:forEach>
+		      </div>
+            </td></tr>
         </c:forEach>
         </tbody>
     </table>
@@ -66,7 +80,7 @@
         <div class="modal-content">
             <form action='/sale/add' name="saleForm" method='post'>
                 <div class="modal-header">                      
-                    <h4 class="modal-title">Add Venda</h4>
+                    <h4 class="modal-title">Add Sale</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
                 <div class="modal-body">
@@ -100,9 +114,9 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>Produtos</label><br>
+                        <label>Products</label><br>
                         <c:forEach var="varProduct" items="${productList}">
-                            <input type="checkbox" name="productIds" value="${varProduct.id}"> <c:out value="${varProduct.description}"/><br>
+                          <input type="checkbox" name="productIds" value="${varProduct.id}"> <c:out value="${varProduct.description}"/><br>
                         </c:forEach>
                     </div>
                     <div class="form-group">
@@ -215,7 +229,7 @@
 
 
 <%-- View Modal HTML --%>
-<div id="viewModal" class="modal fade">
+<%-- <div id="viewModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
             <form>
@@ -224,7 +238,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <%-- productlist.jsp --%>
+                    productlist.jsp
                 </div>
                 <div class="modal-footer">
                     <input type="button" class="btn btn-default" data-dismiss="modal" value="Close">
@@ -233,10 +247,10 @@
         </div>
     </div>
 </div>
-
+ --%>
 
 <script>
-// View Modal JS
+/* // View Modal JS
 $(document).ready(function(){
     $('.open-view').on('click',function(e){
     	    e.preventDefault();
@@ -247,7 +261,7 @@ $(document).ready(function(){
         });
     }); 
 });
- 
+ */ 
 // Edit Modal JS
 $(document).on("click", ".open-edit", function (e) {
     e.preventDefault();

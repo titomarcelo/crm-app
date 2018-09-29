@@ -14,7 +14,6 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -33,115 +32,118 @@ import com.tmao.crm.sale.domain.SaleService;
 @RequestMapping("/sale")
 public class SaleController {
 
-    private static final String REDIRECT_SALE_LIST = "redirect:/sale/crud";
+	private static final String REDIRECT_SALE_LIST = "redirect:/sale/crud";
 
-    @Autowired
-    private SaleService saleService;
+	@Autowired
+	private SaleService saleService;
 
-    @Autowired
-    private CustomerService customerService;
+	@Autowired
+	private CustomerService customerService;
 
-    @Autowired
-    private ProductService productService;
+	@Autowired
+	private ProductService productService;
 
-    @GetMapping("/crud")
-    public String list(final Model model) {
+	@GetMapping("/crud")
+	public String list(final Model model) {
 
-        model.addAttribute("cardList", Arrays.asList(Card.values()));
-        model.addAttribute("customerList", customerService.findAll());
-        model.addAttribute("productList", productService.findAllActive());
+		model.addAttribute("cardList", Arrays.asList(Card.values()));
+		model.addAttribute("customerList", customerService.findAll());
+		model.addAttribute("productList", productService.findAllActive());
 
-        model.addAttribute("sales", saleService.findAll());
-        return "/sale/crud";
-    }
+		model.addAttribute("sales", saleService.findAll());
+		return "/sale/crud";
+	}
 
-    @GetMapping("/load/{id}")
-    public String load(@PathVariable final String id, final Model model, final RedirectAttributes redirectAttributes) {
-        try {
-            model.addAttribute("sale", saleService.findById(id));
+	// @GetMapping("/load/{id}")
+	// public String load(@PathVariable final String id, final Model model, final
+	// RedirectAttributes redirectAttributes) {
+	// try {
+	// model.addAttribute("sale", saleService.findById(id));
+	//
+	// } catch (DomainException domainException) {
+	// redirectAttributes.addFlashAttribute(MSG, Message.get(MessageType.DANGER,
+	// domainException.getMessage()));
+	// }
+	//
+	// return "sale/productlist";
+	// }
 
-        } catch (DomainException domainException) {
-            redirectAttributes.addFlashAttribute(MSG, Message.get(MessageType.DANGER, domainException.getMessage()));
-        }
+	@PostMapping("/add")
+	public String add(@ModelAttribute("sale") final SaleForm form, final RedirectAttributes redirectAttributes) {
 
-        return "sale/productlist";
-    }
+		try {
+			Sale sale = new Sale();
+			populateWithDataForm(sale, form);
 
-    @PostMapping("/add")
-    public String add(@ModelAttribute("sale") final SaleForm form, final RedirectAttributes redirectAttributes) {
+			saleService.create(sale);
+			redirectAttributes.addFlashAttribute(MSG, Message.get(MessageType.SUCCESS, "Sale added successfully"));
 
-        try {
-            Sale sale = new Sale();
-            populateWithDataForm(sale, form);
+		} catch (DomainException domainException) {
+			redirectAttributes.addFlashAttribute(MSG, Message.get(MessageType.DANGER, domainException.getMessage()));
+		}
 
-            saleService.create(sale);
-            redirectAttributes.addFlashAttribute(MSG, Message.get(MessageType.SUCCESS, "Sale added successfully"));
+		return REDIRECT_SALE_LIST;
+	}
 
-        } catch (DomainException domainException) {
-            redirectAttributes.addFlashAttribute(MSG, Message.get(MessageType.DANGER, domainException.getMessage()));
-        }
+	@PostMapping("/delete")
+	public String delete(@RequestParam(name = "beanId") final String id, final RedirectAttributes redirectAttributes) {
 
-        return REDIRECT_SALE_LIST;
-    }
+		try {
+			saleService.delete(id);
+			redirectAttributes.addFlashAttribute(MSG, Message.get(MessageType.SUCCESS, "Sale deleted successfully"));
 
-    @PostMapping("/delete")
-    public String delete(@RequestParam(name = "beanId") final String id, final RedirectAttributes redirectAttributes) {
+		} catch (DomainException domainException) {
+			redirectAttributes.addFlashAttribute(MSG, Message.get(MessageType.DANGER, domainException.getMessage()));
+		}
 
-        try {
-            saleService.delete(id);
-            redirectAttributes.addFlashAttribute(MSG, Message.get(MessageType.SUCCESS, "Sale deleted successfully"));
+		return REDIRECT_SALE_LIST;
+	}
 
-        } catch (DomainException domainException) {
-            redirectAttributes.addFlashAttribute(MSG, Message.get(MessageType.DANGER, domainException.getMessage()));
-        }
+	@PostMapping("/update")
+	public String update(final @ModelAttribute("saleForm") SaleForm form, final RedirectAttributes redirectAttributes) {
 
-        return REDIRECT_SALE_LIST;
-    }
+		try {
+			Sale sale = saleService.findById(form.getId());
+			populateWithDataForm(sale, form);
 
-    @PostMapping("/update")
-    public String update(final @ModelAttribute("saleForm") SaleForm form, final RedirectAttributes redirectAttributes) {
+			saleService.update(sale);
+			redirectAttributes.addFlashAttribute(MSG, Message.get(MessageType.SUCCESS, "Sale updated successfully"));
 
-        try {
-            Sale sale = saleService.findById(form.getId());
-            populateWithDataForm(sale, form);
+		} catch (DomainException domainException) {
+			redirectAttributes.addFlashAttribute(MSG, Message.get(MessageType.DANGER, domainException.getMessage()));
+		}
 
-            saleService.update(sale);
-            redirectAttributes.addFlashAttribute(MSG, Message.get(MessageType.SUCCESS, "Sale updated successfully"));
+		return "/sale/crud";
+	}
 
-        } catch (DomainException domainException) {
-            redirectAttributes.addFlashAttribute(MSG, Message.get(MessageType.DANGER, domainException.getMessage()));
-        }
+	@ModelAttribute("saleForm")
+	public SaleForm createFormBean() {
+		return new SaleForm();
+	}
 
-        return "/sale/crud";
-    }
+	@InitBinder("saleForm")
+	protected void initBinder(final WebDataBinder binder) {
+		// init binder
+	}
 
-    @ModelAttribute("saleForm")
-    public SaleForm createFormBean() {
-        return new SaleForm();
-    }
+	private void populateWithDataForm(final Sale sale, final SaleForm form) throws DomainException {
+		sale.setCard(form.getCard());
+		sale.setDate(form.getDateAsLocalDate());
+		sale.setAmount(createAmountFromString(form.getAmount()));
+		sale.setCustomer(customerService.findById(form.getCustomerId()));
 
-    @InitBinder("saleForm")
-    protected void initBinder(final WebDataBinder binder) {
-        // init binder
-    }
+		for (String productId : form.getProductIds()) {
+			sale.addProduct(productService.findById(productId));
+			sale.addProduct(productService.findById(productId));
+		}
+	}
 
-    private void populateWithDataForm(final Sale sale, final SaleForm form) throws DomainException {
-        sale.setCard(form.getCard());
-        sale.setDate(form.getDateAsLocalDate());
-        sale.setAmount(createAmountFromString(form.getAmount()));
-        sale.setCustomer(customerService.findById(form.getCustomerId()));
+	private BigDecimal createAmountFromString(final String amount) {
+		return new BigDecimal(onlyNumbers(amount)).setScale(2);
+	}
 
-        for (String productId : form.getProductIds()) {
-            sale.addProduct(productService.findById(productId));
-        }
-    }
-
-    private BigDecimal createAmountFromString(final String amount) {
-        return new BigDecimal(onlyNumbers(amount)).setScale(2);
-    }
-
-    private String onlyNumbers(final String string) {
-        return Optional.ofNullable(string).map(str -> string.replaceAll("[^\\d]", EMPTY)).orElse(EMPTY);
-    }
+	private String onlyNumbers(final String string) {
+		return Optional.ofNullable(string).map(str -> string.replaceAll("[^\\d]", EMPTY)).orElse(EMPTY);
+	}
 
 }

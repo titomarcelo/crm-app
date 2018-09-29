@@ -1,6 +1,7 @@
 #message {
     position: fixed;
-    bottom: 5px;
+    /*bottom: 5px;*/
+    top: 5px;
     left:69%;
     width: 30%;
     z-index:9999;
