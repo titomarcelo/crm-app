@@ -34,6 +34,7 @@
     <%-- Navigation --%>
     <nav class="navbar-app bg-secondary fixed-top text-uppercase">
       <div class="container-fluid">
+      
         <ul class="nav navbar-nav">
           <li class="active"><a href="/">Home</a></li>
         </ul>
@@ -46,6 +47,17 @@
         <ul class="nav navbar-nav">
           <li class="active"><a href="/sale/crud">Sales</a></li>
         </ul>
+        <ul class="nav navbar-nav">
+	      <li class="dropdown">
+	        <a class="dropdown-toggle active" data-toggle="dropdown" href="#">Reports</a>
+	        <ul class="dropdown-menu">
+	          <li><a href="/report/product">Products</a></li>
+	          <li><a href="/report/customer">Customers</a></li>
+	          <li><a href="/report/sale">Sales</a></li>
+	        </ul>
+	      </li>
+        </ul>
+        
         <a class="navbar-brand pull-right" href="/">TMAO CRM</a>
       </div>
     </nav>
