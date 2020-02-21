@@ -2,25 +2,42 @@ package com.tmao.crm.product.domain;
 
 public enum Category {
 
-    NON_ALCOHOLIC_DRINK("Bebida não alcoólica"),
+    NON_ALCOHOLIC_DRINK {
+        @Override
+        public String getDescription() {
+            return "Bebida não alcoólica";
+        }
+    },
 
-    ALCOHOLIC_DRINK("Bebida alcoólica"),
+    ALCOHOLIC_DRINK {
+        @Override
+        public String getDescription() {
+            return "Bebida alcoólica";
+        }
+    },
 
-    SNACK("Petisco"),
+    SNACK {
+        @Override
+        public String getDescription() {
+            return "Petisco";
+        }
+    },
 
-    DISH("Prato"),
+    DISH {
+        @Override
+        public String getDescription() {
+            return "Prato";
+        }
+    },
 
-    DESSERT("Sobremesa");
+    DESSERT {
+        @Override
+        public String getDescription() {
+            return "Sobremesa";
+        }
+    };
 
-    private String description;
-
-    private Category(final String description) {
-        this.description = description;
-    }
-
-    public String getDescription() {
-        return description;
-    }
+    public abstract String getDescription();
 
     public String getValue() {
         return name();
