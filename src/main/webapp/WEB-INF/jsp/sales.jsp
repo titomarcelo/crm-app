@@ -1,5 +1,5 @@
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c' %>
-<jsp:include page="../header.jsp"></jsp:include>
+<jsp:include page="header.jsp"></jsp:include>
 
 <div class="table-wrapper" id="list-sales" >
     <div class="table-title">
@@ -37,7 +37,7 @@
                 <td class='money3-mask'><c:out value="${sale.amount}"/></td>
                 <%-- 
                 <td>
-                    <a href="javascript:void(0);" data-href="/sale/load/${sale.id}" class="open-view">
+                    <a href="javascript:void(0);" data-href="/sales/load/${sale.id}" class="open-view">
                         <i class="material-icons" data-toggle="tooltip" title="Sale products">list</i></a>
                 </td>
                 --%>
@@ -78,7 +78,7 @@
 <div id="addModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form action='/sale/add' name="saleForm" method='post'>
+            <form action='/sales/add' name="saleForm" method='post'>
                 <div class="modal-header">                      
                     <h4 class="modal-title">Add Sale</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -138,7 +138,7 @@
 <div id="editModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form action='/sale/update' method='post'>
+            <form action='/sales/update' method='post'>
                 <div class="modal-header">                      
                     <h4 class="modal-title">Edit Venda</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -208,7 +208,7 @@
 <div id="deleteModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form action='/sale/delete' method='post'>
+            <form action='/sales/delete' method='post'>
                 <div class="modal-header">                      
                     <h4 class="modal-title">Delete Venda</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -323,4 +323,4 @@ var listSales = new List('list-sales', {
 </script>
 
 </div>
-<jsp:include page="../footer.jsp"></jsp:include>
+<jsp:include page="footer.jsp"></jsp:include>

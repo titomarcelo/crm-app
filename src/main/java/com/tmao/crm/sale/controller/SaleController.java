@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -29,10 +28,9 @@ import com.tmao.crm.sale.domain.Sale;
 import com.tmao.crm.sale.service.SaleService;
 
 @Controller
-@RequestMapping("/sale")
 public class SaleController {
 
-    private static final String REDIRECT_SALE_LIST = "redirect:/sale/crud";
+    private static final String REDIRECT_SALE_LIST = "redirect:/sales";
 
     @Autowired
     private SaleService saleService;
@@ -43,7 +41,7 @@ public class SaleController {
     @Autowired
     private ProductService productService;
 
-    @GetMapping("/crud")
+    @GetMapping("/sales")
     public String list(final Model model) {
 
         model.addAttribute("cardList", Arrays.asList(Card.values()));
@@ -51,7 +49,7 @@ public class SaleController {
         model.addAttribute("productList", productService.findAllActive());
 
         model.addAttribute("sales", saleService.findAll());
-        return "/sale/crud";
+        return "sales";
     }
 
     // @GetMapping("/load/{id}")
@@ -68,7 +66,7 @@ public class SaleController {
     // return "sale/productlist";
     // }
 
-    @PostMapping("/add")
+    @PostMapping("/sales/add")
     public String add(@ModelAttribute("sale") final SaleForm form, final RedirectAttributes redirectAttributes) {
 
         try {
@@ -85,7 +83,7 @@ public class SaleController {
         return REDIRECT_SALE_LIST;
     }
 
-    @PostMapping("/delete")
+    @PostMapping("/sales/delete")
     public String delete(@RequestParam(name = "beanId") final String id, final RedirectAttributes redirectAttributes) {
 
         try {
@@ -99,7 +97,7 @@ public class SaleController {
         return REDIRECT_SALE_LIST;
     }
 
-    @PostMapping("/update")
+    @PostMapping("/sales/update")
     public String update(final @ModelAttribute("saleForm") SaleForm form, final RedirectAttributes redirectAttributes) {
 
         try {
@@ -113,7 +111,7 @@ public class SaleController {
             redirectAttributes.addFlashAttribute(MSG, Message.get(MessageType.DANGER, notFound.getMessage()));
         }
 
-        return "/sale/crud";
+        return "/sales";
     }
 
     @ModelAttribute("saleForm")
