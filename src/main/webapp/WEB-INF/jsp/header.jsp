@@ -39,26 +39,29 @@
           <li class="active"><a href="/">Home</a></li>
         </ul>
         <ul class="nav navbar-nav">
-          <li class="active"><a href="/product/list">Products</a></li>
+          <li class="active"><a href="/products">Products</a></li>
         </ul>
         <ul class="nav navbar-nav">
           <li class="active"><a href="/customers">Customers</a></li>
         </ul>
         <ul class="nav navbar-nav">
-          <li class="active"><a href="/sale/crud">Sales</a></li>
+          <li class="active"><a href="/sales">Sales</a></li>
         </ul>
         <ul class="nav navbar-nav">
 	      <li class="dropdown">
 	        <a class="dropdown-toggle active" data-toggle="dropdown" href="#">Reports</a>
 	        <ul class="dropdown-menu">
-	          <li><a href="/report/product">Products</a></li>
-	          <li><a href="/report/customer">Customers</a></li>
-	          <li><a href="/report/sale">Sales</a></li>
+	          <li><a href="/reports/product">Products</a></li>
+	          <li><a href="/reports/customer">Customers</a></li>
+	          <li><a href="/reports/sale">Sales</a></li>
 	        </ul>
 	      </li>
         </ul>
         
-        <a class="navbar-brand pull-right" href="/">TMAO CRM</a>
+        <ul class="nav navbar-nav pull-right">
+          <li class="active"><a href="/logout">Sign Out</a></li>
+        </ul>
+        <%-- a class="navbar-brand pull-right" href="/">TMAO CRM</a --%>
       </div>
     </nav>
     

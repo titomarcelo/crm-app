@@ -15,7 +15,7 @@
         <logback.contrib.version>0.1.5</logback.contrib.version>
         <java.version>1.8</java.version>
         
-        <start-class>com.tmao.crm.App</start-class>
+        <start-class>com.tmao.crm.Application</start-class>
         <main.basedir>${basedir}/../..</main.basedir>
         <m2eclipse.wtp.contextRoot>/</m2eclipse.wtp.contextRoot>
     </properties>

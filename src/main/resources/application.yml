@@ -12,4 +12,8 @@ spring:
 
 logging:
   level:
-    org.springframework.web: DEBUG
+    org.springframework:
+        security: INFO
+        web: INFO
+
+#debug: true

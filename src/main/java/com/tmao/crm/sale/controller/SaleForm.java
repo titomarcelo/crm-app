@@ -1,4 +1,4 @@
-package com.tmao.crm.sale.web;
+package com.tmao.crm.sale.controller;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

@@ -1,4 +1,4 @@
-package com.tmao.crm.address.domain;
+package com.tmao.crm.customer.domain;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -18,7 +18,7 @@ public class Address {
     private String additional;
     private String neighborhood;
 
-    // TITO - Usar ou nao?
+    // _TITO - Usar ou nao?
 
     public String getId() {
         return id;

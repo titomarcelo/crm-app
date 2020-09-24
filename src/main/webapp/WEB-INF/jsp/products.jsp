@@ -1,5 +1,5 @@
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c' %>
-<jsp:include page="../header.jsp"></jsp:include>
+<jsp:include page="header.jsp"></jsp:include>
 
 <div class="table-wrapper" id="list-products" >
     <div class="table-title">
@@ -53,7 +53,7 @@
 <div id="addModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form action='/product/add' method='post'>
+            <form action='/products/add' method='post'>
                 <div class="modal-header">                      
                     <h4 class="modal-title">Add new product</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -91,7 +91,7 @@
 <div id="editModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form action='/product/update' method='post'>
+            <form action='/products/update' method='post'>
                 <div class="modal-header">                      
                     <h4 class="modal-title">Edit product</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -129,7 +129,7 @@
 <div id="deleteModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form action='/product/delete' method='post'>
+            <form action='/products/delete' method='post'>
                 <div class="modal-header">                      
                     <h4 class="modal-title">Delete product</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -172,4 +172,4 @@ var listProducts = new List('list-products', {
 </script>
 
 </div>
-<jsp:include page="../footer.jsp"></jsp:include>
+<jsp:include page="footer.jsp"></jsp:include>

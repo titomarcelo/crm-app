@@ -1,4 +1,4 @@
-package com.tmao.crm.commons.web;
+package com.tmao.crm.commons.config;
 
 import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
 import org.springframework.context.annotation.Bean;

@@ -1,4 +1,4 @@
-package com.tmao.crm.commons.web;
+package com.tmao.crm.commons.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
