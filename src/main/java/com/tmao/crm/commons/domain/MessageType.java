@@ -1,4 +1,4 @@
-package com.tmao.crm.commons.web.message;
+package com.tmao.crm.commons.domain;
 
 public enum MessageType {
 

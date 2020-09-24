@@ -1,6 +1,6 @@
 package com.tmao.crm.product.web;
 
-import static com.tmao.crm.commons.web.message.Message.MSG;
+import static com.tmao.crm.commons.domain.Message.MSG;
 
 import java.util.Arrays;
 
@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.tmao.crm.commons.domain.DomainException;
-import com.tmao.crm.commons.web.message.Message;
-import com.tmao.crm.commons.web.message.MessageType;
+import com.tmao.crm.commons.domain.Message;
+import com.tmao.crm.commons.domain.MessageType;
 import com.tmao.crm.product.domain.Category;
 import com.tmao.crm.product.domain.Product;
 import com.tmao.crm.product.domain.ProductService;

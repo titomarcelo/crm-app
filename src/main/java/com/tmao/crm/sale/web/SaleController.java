@@ -1,6 +1,6 @@
 package com.tmao.crm.sale.web;
 
-import static com.tmao.crm.commons.web.message.Message.MSG;
+import static com.tmao.crm.commons.domain.Message.MSG;
 import static org.apache.commons.lang3.StringUtils.EMPTY;
 
 import java.math.BigDecimal;
@@ -20,8 +20,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.tmao.crm.commons.domain.DomainException;
-import com.tmao.crm.commons.web.message.Message;
-import com.tmao.crm.commons.web.message.MessageType;
+import com.tmao.crm.commons.domain.Message;
+import com.tmao.crm.commons.domain.MessageType;
 import com.tmao.crm.customer.domain.CustomerService;
 import com.tmao.crm.product.domain.ProductService;
 import com.tmao.crm.sale.domain.Card;

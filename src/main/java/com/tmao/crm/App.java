@@ -2,8 +2,10 @@ package com.tmao.crm;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
-@SpringBootApplication(scanBasePackages = {"com.tmao.crm"})
+@SpringBootApplication
+@ComponentScan("com.tmao.crm")
 public class App {
 
     public static void main(final String[] args) {

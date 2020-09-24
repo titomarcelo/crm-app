@@ -42,7 +42,7 @@
           <li class="active"><a href="/product/list">Products</a></li>
         </ul>
         <ul class="nav navbar-nav">
-          <li class="active"><a href="/customer/list">Customers</a></li>
+          <li class="active"><a href="/customers">Customers</a></li>
         </ul>
         <ul class="nav navbar-nav">
           <li class="active"><a href="/sale/crud">Sales</a></li>
